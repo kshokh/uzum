@@ -8,12 +8,14 @@ public class    FindNumbers {
     }
 
     public int[] find(int target) {
-        for (int i = 0; i < array.length; i++) {
-            for (int j = i + 1; j < array.length; j++) {
-                if (array[i] + array[j] == target) {
-                    return new int[]{array[i], array[j]};
-                }
+        HashMap<Integer, Integer> map = new HashMap<>();
+
+        for (int num : array) {
+            int complement = target - num;
+            if (map.containsKey(complement)) {
+                return new int[]{complement, num};
             }
+            map.put(num, 1);
         }
         return null;
     }
@@ -23,3 +25,4 @@ public class    FindNumbers {
         System.out.printf("%s + %s = %s.\n", pair[0], pair[1], target);
     }
 }
+
