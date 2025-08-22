@@ -1,5 +1,7 @@
 package uz.uzum.two_sums;
 
+import java.util.HashMap;
+
 public class    FindNumbers {
     private final int[] array;
 
@@ -25,4 +27,5 @@ public class    FindNumbers {
         System.out.printf("%s + %s = %s.\n", pair[0], pair[1], target);
     }
 }
+
 
