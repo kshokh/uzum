@@ -1,10 +1,11 @@
 package uz.uzum.two_pointers;
 
 import java.util.Arrays;
+import java.util.HashSet;
 
 /**
  * @author Shohjahon
- * @version 1.0
+ * @version 1.0.1
  */
 
 public class Main {
@@ -16,14 +17,17 @@ public class Main {
     }
 
     static int duplicates(int[] num) {
+        HashSet<Integer> numbers = new HashSet<>();
         int index = 0;
 
-        for (int i = 1; i < num.length; i++) {
-            if (num[i] != num[index]) {
-                num[++index] = num[i];
+        for (int i = 0; i < num.length; i++) {
+            if (!numbers.contains(num[i])) {
+                numbers.add(num[i]);
+                num[index++] = num[i];
             }
         }
 
-        return index + 1;
+        return index;
     }
 }
+
